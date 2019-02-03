@@ -13,3 +13,4 @@ export class BossesService {
     return this.http.get(this.url);
   }
 }
+
