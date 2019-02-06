@@ -30,6 +30,7 @@ body {
   margin-bottom: 35px;
   border-top-left-radius: 14px;
   border-top-right-radius: 14px;
+  margin-top: 10px;
 }
 
 .card__image--barbarian img {
@@ -45,7 +46,7 @@ body {
 }
 
 .card__level--barbarian {
-  color: darkblue;
+  color: teal;
 }
 .card__unit-name {
   font-size: 26px;
@@ -60,7 +61,7 @@ body {
 }
 
 .card__unit-stats--barbarian {
-  background: darkblue;
+  background: teal;
 }
 .card__unit-stats--barbarian .one-third {
   border-right: 1px solid white;

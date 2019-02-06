@@ -19,7 +19,7 @@
 
 
 .active {
-  background-color: darkblue; /* Add an active/current color */
+  background-color: teal; /* Add an active/current color */
 }
 
 .icon-bar a:hover {
