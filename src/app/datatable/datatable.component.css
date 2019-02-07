@@ -5,6 +5,6 @@
   padding: 0.20rem 1.25rem !important;
 }
 
-.list-group-item-inherit-bg {
-  background: inherit;
+.inherit-bg {
+  background-color: inherit !important;
 }

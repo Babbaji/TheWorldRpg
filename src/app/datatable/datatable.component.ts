@@ -65,11 +65,10 @@ export class DatatableComponent implements OnInit {
                 ulHtmlCode += '<li ' +
                   'class="' +
                   'list-group-item ' +
-                  'list-group-item-inherit-bg ' +
                   'd-flex "' +
-                  'style="padding: 0.3rem 1rem;">' +
+                  'style="padding: 0.3rem 1rem;  background-color: inherit;">' +
                   '<span class="badge badge-info badge-pill" ' +
-                  'style="' + assignColorsByStat(stat) + ';"' +
+                  ' style="' + assignColorsByStat(stat) + '"' +
                   '>' + stat + '</span>' +
                   '</li>';
               });

@@ -10,10 +10,9 @@ import { BossPageComponent } from './boss-page/boss-page.component';
 import { ItemPageComponent } from './item-page/item-page.component';
 import { ClassesPageComponent } from './classes-page/classes-page.component';
 import { ItemListComponent } from './item-list/item-list.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {RouterModule} from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { DatatableComponent } from './datatable/datatable.component';
-import {DataTablesModule} from 'angular-datatables';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -31,7 +30,6 @@ import {DataTablesModule} from 'angular-datatables';
   imports: [
     BrowserModule,
     HttpModule,
-    NgbModule,
     DataTablesModule,
     RouterModule.forRoot([
       { path: '', component: DatatableComponent},
