@@ -11,8 +11,9 @@ import { ItemPageComponent } from './item-page/item-page.component';
 import { ClassesPageComponent } from './classes-page/classes-page.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { RouterModule } from '@angular/router';
-import { DatatableComponent } from './datatable/datatable.component';
 import { DataTablesModule } from 'angular-datatables';
+import { EquipmentListComponent } from './equipment-list/equipment-list.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -25,16 +26,17 @@ import { DataTablesModule } from 'angular-datatables';
     ItemPageComponent,
     ClassesPageComponent,
     ItemListComponent,
-    DatatableComponent,
+    EquipmentListComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     HttpModule,
     DataTablesModule,
     RouterModule.forRoot([
-      { path: '', component: DatatableComponent},
+      { path: 'home', component: HomeComponent},
       { path: 'classes', component: ClassesPageComponent},
-      { path: 'items', component: ItemListComponent},
+      { path: 'equipment', component: EquipmentListComponent},
       { path: 'bosses', component: BossesListComponent},
       { path: 'bosses/:bossName', component: BossPageComponent},
     ])

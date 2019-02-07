@@ -1,11 +1,11 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {falseIfMissing} from 'protractor/built/util';
 declare var $;
+
 @Component({
-  selector: 'app-datatable',
-  templateUrl: 'datatable.component.html'
+  selector: 'app-equipment-list',
+  templateUrl: 'equipment-list.component.html'
 })
-export class DatatableComponent implements OnInit {
+export class EquipmentListComponent implements OnInit {
   @ViewChild('datatable') table;
   dataTable: any;
   dtOptions: any;
@@ -20,40 +20,33 @@ export class DatatableComponent implements OnInit {
       colReorder: true,
       searchHighlight: true,
       'ajax': {
-        url: 'https://webhooks.mongodb-stitch.com/api/client/v2.0/app/theworldrpg-levql/service/http/incoming_webhook/read',
+        url: 'https://webhooks.mongodb-stitch.com/api/client/v2.0/app/theworldrpg-levql/service/http/incoming_webhook/getAllEquipment',
         type: 'GET',
         dataSrc: ''
       },
       columnDefs: [
-        // Name
-      {
-        targets: 0,
-        render: function ( data, type, row, meta ) {
-          return data;
-        },
-      },
         // Source
-      {
-        targets: 3,
-        render: function (data, type, row) {
-          if (!(row.dropped_by === undefined)) {
-            let value = '';
-            row.dropped_by.forEach((source) => {
-              value += source + ', ';
-            });
-            value = value.substring(0, value.length - 2);
-            return value;
-          }
-          if (!(row.recipe === undefined)) {
-            let value = '';
-            row.recipe.forEach((source) => {
-              value += source + ' + ';
-            });
-            value = value.substring(0, value.length - 2);
-            return value;
-          }
+        {
+          targets: 3,
+          render: function (data, type, row) {
+            if (!(row.dropped_by === undefined)) {
+              let value = '';
+              row.dropped_by.forEach((source) => {
+                value += source + ', ';
+              });
+              value = value.substring(0, value.length - 2);
+              return value;
+            }
+            if (!(row.recipe === undefined)) {
+              let value = '';
+              row.recipe.forEach((source) => {
+                value += source + ' + ';
+              });
+              value = value.substring(0, value.length - 2);
+              return value;
+            }
+          },
         },
-      },
         // Stats
         {
           targets: 5,
@@ -76,13 +69,28 @@ export class DatatableComponent implements OnInit {
               return ulHtmlCode;
             }
           },
-        }
-    ],
+        },
+        // Required By
+        {
+          targets: 6,
+          render: function (data, type, row) {
+            if (!(row.required_by === undefined)) {
+              let value = '';
+              row.required_by.forEach((source) => {
+                value += source + ', ';
+              });
+              value = value.substring(0, value.length - 2);
+              return value;
+            }
+          },
+        },
+      ],
       columns: [
         {
           // 0
           title: 'Name',
-          data: 'name'
+          data: 'name',
+          defaultContent: 'None'
         },
         {
           // 1
@@ -94,7 +102,8 @@ export class DatatableComponent implements OnInit {
         {
           // 2
           title: 'Level',
-          data: 'level'
+          data: 'level',
+          defaultContent: 'None'
         },
         {
           // 3
@@ -112,7 +121,20 @@ export class DatatableComponent implements OnInit {
         {
           // 5
           title: 'Stats',
-          data: 'stats'
+          data: 'stats',
+          defaultContent: 'None'
+        },
+        {
+          // 6
+          title: 'Required By',
+          data: 'required_by',
+          defaultContent: 'None'
+        },
+        {
+          // 7
+          title: 'Type',
+          data: 'type',
+          defaultContent: 'None'
         }
       ]
     };
