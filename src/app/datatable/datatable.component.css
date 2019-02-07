@@ -4,3 +4,7 @@
 .list-group-item-smaller-padding {
   padding: 0.20rem 1.25rem !important;
 }
+
+.list-group-item-inherit-bg {
+  background: inherit;
+}

@@ -65,6 +65,7 @@ export class DatatableComponent implements OnInit {
                 ulHtmlCode += '<li ' +
                   'class="' +
                   'list-group-item ' +
+                  'list-group-item-inherit-bg ' +
                   'd-flex "' +
                   'style="padding: 0.3rem 1rem;">' +
                   '<span class="badge badge-info badge-pill" ' +
@@ -194,7 +195,7 @@ function assignColorsByStat(stat) {
     'color: #fff;' +
     'background-color: #ffc107 ;';
 
-  const darkerYellow =    //Critical
+  const darkerYellow =    // Critical
     'color: #fff;' +
     'background-color: #E6A800';
 
