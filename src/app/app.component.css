@@ -1,3 +1,7 @@
 .contenuti {
-  z-index: -1;
+  z-index: 0;
+}
+
+.barra {
+  z-index: 1;
 }

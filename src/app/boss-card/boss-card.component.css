@@ -33,21 +33,30 @@ body {
   margin-top: 10px;
 }
 
-.card__image--barbarian img {
-  width: 250px;
+.img-boss {
+  width:250px;
 }
 
+.stat {
+  font-weight: bold;
+}
 
+.stat-info-tab {
+  background: teal;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  color: white;
+  height: 100%;
+}
 .card__level {
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 700;
   margin-bottom: 3px;
-}
-
-.card__level--barbarian {
   color: teal;
 }
+
 .card__unit-name {
   font-size: 26px;
   color: black;
@@ -60,59 +69,22 @@ body {
   margin-bottom: 10px;
 }
 
-.card__unit-stats--barbarian {
-  background: teal;
-}
-.card__unit-stats--barbarian .one-third {
-  border-right: 1px solid white;
-}
 
 .card__unit-stats {
   color: white;
   font-weight: 700;
   border-bottom-left-radius: 14px;
   border-bottom-right-radius: 14px;
-}
-.card__unit-stats .one-third {
-  width: 33%;
-  float: left;
+  background: teal;
   padding: 20px 15px;
 }
-.card__unit-stats sup {
-  position: absolute;
-  bottom: 4px;
-  font-size: 45%;
-  margin-left: 2px;
-}
-.card__unit-stats .stat {
-  position: relative;
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-.card__unit-stats .stat-value {
-  text-transform: uppercase;
-  font-weight: 400;
-  font-size: 12px;
-}
-.card__unit-stats .no-border {
-  border-right: none;
+
+.stats-hr {
+  width: 100px;
+  color: white;
 }
 
-.clearfix:after {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: " ";
-  clear: both;
-  height: 0;
-}
-
-.slick-prev {
-  left: 100px;
-  z-index: 999;
-}
-
-.slick-next {
-  right: 100px;
-  z-index: 999;
+.stats-value-hr {
+  width: 100%;
+  color: white;
 }

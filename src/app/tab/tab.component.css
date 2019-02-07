@@ -27,7 +27,7 @@
 }
 
 
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .icon-bar { /* Vertical */
     width: 90px; /* Set a specific width */
     background-color: #555; /* Dark-grey background */
@@ -61,7 +61,6 @@
     top: -140%;
     left: -25%;
     border-radius: 9px;
-    font: 16px;
     transform: translateY(9px);
     transition: all 0.3s ease-in-out;
     box-shadow: 0 0 3px rgba(56, 54, 54, 0.86);

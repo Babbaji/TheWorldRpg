@@ -4,3 +4,11 @@ body {
   padding: 20px;
   background: lightgray;
 }
+
+.larger-font {
+  font-size: 1.2rem;
+}
+
+.custom-popover {
+  min-width: 200px !important;
+}

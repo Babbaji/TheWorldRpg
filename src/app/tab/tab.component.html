@@ -1,44 +1,48 @@
 <!-- Add icon library -->
 
 <div class="icon-bar">
-  <a class="active con-tooltip right" href="#">
+  <a routerLinkActive="active" class="con-tooltip right" routerLink="#">
     <div class="tooltip ">
       <p class="tooltip-text">Home</p>
     </div>
     <i class="fa fa-home"></i>
   </a>
 
-  <a class="con-tooltip right" href="#">
+  <a routerLinkActive="active" class="con-tooltip right" routerLink="#">
   <div class="tooltip ">
     <p class="tooltip-text">Class</p>
   </div><i class="fas fa-theater-masks"></i>
   </a>
 
-  <a class="con-tooltip right" href="#">
+  <a routerLinkActive="active"
+     class="con-tooltip right"
+     routerLink="/bosses/ProtectorOfNature"
+     [queryParams]="{type: 'Greatswords', order: 'newest'}">
     <div class="tooltip ">
       <p class="tooltip-text">Boss</p>
     </div><i class="fas fa-dragon"></i>
   </a>
 
-  <a class="con-tooltip right" href="#">
+  <a routerLinkActive="active" class="con-tooltip right" routerLink="/items"
+  >
     <div class="tooltip ">
-      <p class="tooltip-text">Drops</p>
+      <p class="tooltip-text">Items</p>
     </div><i class="fas fa-dice"></i>
   </a>
 
-  <a class="con-tooltip right" href="#">
+  <a routerLinkActive="active" class="con-tooltip right" routerLink="#">
     <div class="tooltip ">
       <p class="tooltip-text">Materials</p>
     </div><i class="fas fa-tooth"></i>
   </a>
 
-  <a class="con-tooltip right" href="#">
+  <a routerLinkActive="active" class="con-tooltip right" routerLink="#">
     <div class="tooltip ">
       <p class="tooltip-text">Guides</p>
     </div><i class="fas fa-book"></i>
   </a>
 
-  <a class="con-tooltip right" href="#">
+  <a class="con-tooltip right" routerLink="#">
     <div class="tooltip ">
       <p class="tooltip-text">Bug Reporting</p>
     </div><i class="fas fa-bug"></i
