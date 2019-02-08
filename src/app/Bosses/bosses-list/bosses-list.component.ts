@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {BossesService} from '../services/bosses.service';
+import {BossesService} from '../../services/bosses.service';
 
 @Component({
   selector: 'app-bosses-list',

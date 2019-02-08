@@ -1,0 +1,10 @@
+
+
+
+.list-group-item-smaller-padding {
+  padding: 0.20rem 1.25rem !important;
+}
+
+.inherit-bg {
+  background-color: inherit !important;
+}

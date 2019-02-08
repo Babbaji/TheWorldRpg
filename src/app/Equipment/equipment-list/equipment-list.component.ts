@@ -9,7 +9,6 @@ export class EquipmentListComponent implements OnInit {
   @ViewChild('datatable') table;
   dataTable: any;
   dtOptions: any;
-
   constructor() {
   }
 
@@ -17,8 +16,6 @@ export class EquipmentListComponent implements OnInit {
     this.dtOptions = {
       dom: 'fltip',
       responsive: true,
-      colReorder: true,
-      searchHighlight: true,
       'ajax': {
         url: 'https://webhooks.mongodb-stitch.com/api/client/v2.0/app/theworldrpg-levql/service/http/incoming_webhook/getAllEquipment',
         type: 'GET',
@@ -52,7 +49,7 @@ export class EquipmentListComponent implements OnInit {
           targets: 5,
           render: function (data, type, row) {
             if (!(row.stats === undefined)) {
-              let ulHtmlCode = ''
+              let ulHtmlCode = '';
               ulHtmlCode = '<ul class="list-group list-group-flush">';
               row.stats.forEach((stat) => {
                 ulHtmlCode += '<li ' +
@@ -61,7 +58,7 @@ export class EquipmentListComponent implements OnInit {
                   'd-flex "' +
                   'style="padding: 0.3rem 1rem;  background-color: inherit;">' +
                   '<span class="badge badge-info badge-pill" ' +
-                  ' style="' + assignColorsByStat(stat) + '"' +
+                  ' style="' + assignColorsByText(stat) + '"' +
                   '>' + stat + '</span>' +
                   '</li>';
               });
@@ -81,6 +78,29 @@ export class EquipmentListComponent implements OnInit {
               });
               value = value.substring(0, value.length - 2);
               return value;
+            }
+          },
+        },
+        // Specialty
+        {
+          targets: 7,
+          render: function (data, type, row) {
+            if (!(row.spec === undefined)) {
+              let ulHtmlCode = '';
+              ulHtmlCode = '<ul class="list-group list-group-flush">';
+              row.spec.forEach((spec) => {
+                ulHtmlCode += '<li ' +
+                  'class="' +
+                  'list-group-item ' +
+                  'd-flex "' +
+                  'style="padding: 0.3rem 1rem;  background-color: inherit;">' +
+                  '<span class="badge badge-info badge-pill" ' +
+                  ' style="' + assignColorsByText(spec) + '"' +
+                  '>' + spec + '</span>' +
+                  '</li>';
+              });
+              ulHtmlCode += '</ul>';
+              return ulHtmlCode;
             }
           },
         },
@@ -128,10 +148,18 @@ export class EquipmentListComponent implements OnInit {
           // 6
           title: 'Required By',
           data: 'required_by',
+          class: 'none',
           defaultContent: 'None'
         },
         {
           // 7
+          title: 'Specialty',
+          data: 'spec',
+          class: 'none',
+          defaultContent: 'None'
+        },
+        {
+          // 8
           title: 'Type',
           data: 'type',
           defaultContent: 'None'
@@ -143,7 +171,7 @@ export class EquipmentListComponent implements OnInit {
   }
 }
 
-function assignColorsByStat(stat) {
+function assignColorsByText(text) {
   const lighterRed =  // Health Regen
     'color: #fff;' +
     'background-color: #FF5050;';
@@ -192,11 +220,11 @@ function assignColorsByStat(stat) {
     'color: #fff;' +
     'background-color: #000080;';
 
-  const lighterTeal =         // Main Stat
+  const lighterTeal =         // Main text
     'color: #fff;' +
     'background-color: #64EFFF ;';
 
-  const teal =                // All stats
+  const teal =                // All texts
     'color: #fff;' +
     'background-color: #17a2b8 ;';
 
@@ -223,60 +251,60 @@ function assignColorsByStat(stat) {
   const gray =          // Everything Else
     'color: #fff;' +
     'background-color: #6c757d;';
-  if (!(stat.includes('Active:')) && !(stat.includes('Passive:'))) {
+  if (!(text.includes('Active:')) && !(text.includes('Passive:'))) {
     // Red
-    if (stat.includes('Health Regen') || stat.includes('HP Regen')) {
+    if (text.includes('Health Regen') || text.includes('HP Regen')) {
       return lighterRed;
     }
-    if (stat.includes('Strength')) {
+    if (text.includes('Strength')) {
       return red;
     }
-    if (stat.includes('Health') && !(stat.includes('Regen'))) {
+    if (text.includes('Health') && !(text.includes('Regen'))) {
       return darkerRed;
     }
-    if (stat.includes('Damage Reduction') || stat.includes('Damage Resistance')) {
+    if (text.includes('Damage Reduction') || text.includes('Damage Resistance')) {
       return darkestRed;
     }
 
     // Green
-    if (stat.includes('Movement Speed') || stat.includes('Move Speed')) {
+    if (text.includes('Movement Speed') || text.includes('Move Speed')) {
       return lighterGreen;
     }
-    if (stat.includes('Agility')) {
+    if (text.includes('Agility')) {
       return green;
     }
-    if (stat.includes('Attack Speed')) {
+    if (text.includes('Attack Speed')) {
       return darkerGreen;
     }
-    if (stat.includes('Armor')) {
+    if (text.includes('Armor')) {
       return darkestGreen;
     }
     // Blue
-    if (stat.includes('Mana Regen') || stat.includes('MP Regen')) {
+    if (text.includes('Mana Regen') || text.includes('MP Regen')) {
       return lighterBlue;
     }
-    if (stat.includes('Intelligence')) {
+    if (text.includes('Intelligence')) {
       return blue;
     }
-    if (stat.includes('Mana')) {
+    if (text.includes('Mana')) {
       return darkerBlue;
     }
-    if (stat.includes('Magic Resistance')) {
+    if (text.includes('Magic Resistance')) {
       return darkestBlue;
     }
-    if (stat.includes('Main Stat')) {
+    if (text.includes('Main Stat')) {
       return lighterTeal;
     }
-    if (stat.includes('All Stat')) {
+    if (text.includes('All Stat')) {
       return teal;
     }
-    if (stat.includes('Skill Damage')) {
+    if (text.includes('Skill Damage')) {
       return darkerTeal;
     }
-    if (stat.includes('Damage') && !(stat.includes('Skill'))) {
+    if (text.includes('Damage') && !(text.includes('Skill'))) {
       return yellow;
     }
-    if (stat.includes('Critical')) {
+    if (text.includes('Critical')) {
       return darkerYellow;
     }
   }
