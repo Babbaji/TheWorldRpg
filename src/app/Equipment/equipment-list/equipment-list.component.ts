@@ -22,6 +22,15 @@ export class EquipmentListComponent implements OnInit {
         dataSrc: ''
       },
       columnDefs: [
+        // Level
+        {
+          targets: 2,
+          render: function (data, type, row) {
+            if (!(data === 'None')) {
+              return Number(data);
+            }
+          },
+        },
         // Source
         {
           targets: 3,
@@ -134,8 +143,8 @@ export class EquipmentListComponent implements OnInit {
         },
         {
           // 4
-          title: 'Drop Rate',
-          data: 'droprate',
+          title: 'Type',
+          data: 'type',
           defaultContent: 'None'
         },
         {
@@ -146,7 +155,7 @@ export class EquipmentListComponent implements OnInit {
         },
         {
           // 6
-          title: 'Required By',
+          title: 'Used to Craft',
           data: 'required_by',
           class: 'none',
           defaultContent: 'None'
@@ -160,8 +169,8 @@ export class EquipmentListComponent implements OnInit {
         },
         {
           // 8
-          title: 'Type',
-          data: 'type',
+          title: 'Drop Rate',
+          data: 'droprate',
           defaultContent: 'None'
         }
       ]
@@ -206,7 +215,7 @@ function assignColorsByText(text) {
 
   const lighterBlue = // Mana Regen
     'color: #fff;' +
-    'background-color: #4DC8FF;';
+    'background-color: #10A2E6;';
 
   const blue =        // Intelligence
     'color: #fff;' +
@@ -253,7 +262,7 @@ function assignColorsByText(text) {
     'background-color: #6c757d;';
   if (!(text.includes('Active:')) && !(text.includes('Passive:'))) {
     // Red
-    if (text.includes('Health Regen') || text.includes('HP Regen')) {
+    if (text.includes('Health Regen') || text.includes('HP Regen') || text.includes('HP regeneration')) {
       return lighterRed;
     }
     if (text.includes('Strength')) {
@@ -280,7 +289,7 @@ function assignColorsByText(text) {
       return darkestGreen;
     }
     // Blue
-    if (text.includes('Mana Regen') || text.includes('MP Regen')) {
+    if (text.includes('Mana Regen') || text.includes('MP Regen') || text.includes('MP regeneration')) {
       return lighterBlue;
     }
     if (text.includes('Intelligence')) {

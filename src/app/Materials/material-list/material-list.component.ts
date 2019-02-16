@@ -45,6 +45,25 @@ export class MaterialListComponent implements OnInit {
             }
           },
         },
+        // dropRates
+        {
+          targets: 3,
+          render: function (data, type, row) {
+            let value = '';
+            if (!(row.droprate === undefined)) {
+              if (row.droprate[0].length > 1) {
+                console.log(row.droprate);
+                console.log(row.droprate[0]);
+              row.droprate.forEach((source) => {
+                value += source + ' / ';
+              });
+              value = value.substring(0, value.length - 3);
+              return value;
+              }
+            }
+            return data;
+          },
+        },
         // Required By
         {
           targets: 4,

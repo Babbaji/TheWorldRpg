@@ -1,0 +1,10 @@
+.form-report {
+  width: 70%;
+  margin: auto;
+}
+
+.success-modal {
+  background: lightgreen !important;
+
+  color: black;
+}

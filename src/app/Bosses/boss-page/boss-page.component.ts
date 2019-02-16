@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ItemsService} from '../../services/items.service';
 
 @Component({
   selector: 'app-boss-page',
@@ -8,14 +8,9 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class BossPageComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private service: ItemsService) { }
 
   ngOnInit() {
-    this.route.paramMap
-      .subscribe((params) => {
-          const bossName = +params.get('bossName');
-        console.log(bossName);
-        }
-      );
+    this.service.getItemsDroppedBy('Poisoned Tree');
   }
 }

@@ -1,0 +1,81 @@
+<form [formGroup]="form" class="form-report mt-lg-5" >
+  <div class="form-group">
+    <label for="inputSender">Sender</label>
+    <input id="inputSender"
+           type="text"
+           formControlName="sender"
+           class="form-control" aria-describedby="senderHelp" placeholder="Enter your name">
+    <div *ngIf="sender.touched && sender.invalid" class="alert alert-danger">Sender is required.</div>
+    <small id="senderHelp" class="form-text text-muted">Use the Discord name so I can easily ask you further information if needed.</small>
+  </div>
+  <div class="form-group">
+    <label for="inputTitle">Title</label>
+    <input type="text"
+           formControlName="title"
+           class="form-control" id="inputTitle" aria-describedby="titleHelp" placeholder="Enter a title.">
+    <div *ngIf="title.touched && title.invalid" class="alert alert-danger">Title is required.</div>
+    <small id="titleHelp" class="form-text text-muted">Write a title that easily explain and summarizes your message, if possible.</small>
+  </div>
+  <div class="form-group ">
+    <label for="selectType">Type</label>
+    <select
+      formControlName="type"
+      class="form-control" id="selectType">
+      <option>- select a Type -</option>
+      <option *ngFor="let type of reportTypes">{{type}}</option>
+    </select>
+    <div *ngIf="type.touched && type.invalid" class="alert alert-danger">Type is required.</div>
+  </div>
+  <div class="form-group">
+    <label for="selectPage">Page</label>
+    <select
+      formControlName="page"
+      class="form-control" id="selectPage" aria-describedby="pageHelp">
+      <option>- select a Page -</option>
+      <option *ngFor="let page of pages">{{page}}</option>
+    </select>
+    <div *ngIf="page.touched && page.invalid" class="alert alert-danger">Page is required.</div>
+    <small id="pageHelp" class="form-text text-muted">Select where the bug occurs.</small>
+  </div>
+
+  <div class="form-group">
+    <label for="inputDescription">Message</label>
+    <textarea
+      formControlName="description"
+      class="form-control" id="inputDescription" rows="5" placeholder="What's wrong or missing?" aria-describedby="descriptionHelp"></textarea>
+    <div *ngIf="description.touched && description.invalid" class="alert alert-danger">Description is required.</div>
+    <small id="descriptionHelp" class="form-text text-muted">If you want to suggest me a new page, I would be happy to implement your suggestion, mind that images (Drawings)
+      of what you want to be implement would help more than 100 words.(Imgur can help us!)</small>
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="submitForm();">Submit</button>
+</form>
+
+<ng-template #successModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title text-success">Success!</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Your message was Received.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light m-auto" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+
+<ng-template #failureModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title text-danger">Failure!</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Your message wasn't Received by the server, try again in a few moments please...</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light m-auto" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>

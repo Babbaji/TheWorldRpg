@@ -8,15 +8,9 @@ import {BossesService} from '../../services/bosses.service';
 })
 export class BossesListComponent implements OnInit {
 
-  bosses: any[];
-  constructor(private service: BossesService) {}
+  constructor() {}
 
   ngOnInit() {
-    this.service.getBosses()
-      .subscribe(response => {
-        this.bosses = response.json();
-        console.log(this.bosses);
-      });
   }
 
 }
