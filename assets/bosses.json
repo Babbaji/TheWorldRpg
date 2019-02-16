@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Ancient Ent",
+    "location": "Fairy Forest",
+    "type": "Raid",
+    "level": "Unknown",
+    "difficulty": "Extremely Hard",
+    "health": 29640000,
+    "minimumAttack": 134691,
+    "maximumAttack": 134695,
+    "armor": 1120,
+    "spawnItems": { "White Powder":0, "Green Powder":0, "Blue Powder":0, "Red Powder":0, "Holy Powder":0, "summonItem": "Seal Breaking Gemstone" },
+    "summoning": "First you need to bring a seal breaking stone to the cenarius statue. Said statue is some distance above the spirit beast lair entrance .\n\nAfterwards , every person must bring a green powder to enter. Can enter infinite times ",
+    "strategy": "Basic strategy against the boss",
+    "drops": ["Purified Water of Nature",],
+    "subBoss": {
+      "name": "Elder Ent",
+      "drops": ["Fragment of the Wind","Purified Water of Nature","Griseus, the Sword of Protection","Griseus, the Sword of Protection"]
+
+    }
+
+  }
+]
