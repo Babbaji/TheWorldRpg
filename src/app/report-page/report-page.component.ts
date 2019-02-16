@@ -13,10 +13,8 @@ export class ReportPageComponent implements OnInit {
   @ViewChild('successModal') successModal;
   @ViewChild('failureModal') failureModal;
   form: FormGroup;
-  private postResult;
-  private values;
-  private pages: any[] = [];
-  private reportTypes: any[] = [];
+  pages: any[] = [];
+  reportTypes: any[] = [];
   constructor(private service: ReportService,
               fb: FormBuilder,
               private modalService: NgbModal) {
@@ -50,15 +48,15 @@ export class ReportPageComponent implements OnInit {
 
   submitForm() {
     if (this.form.valid) {
-      this.values = this.form.value;
-      this.postResult = this.service.postReport(
-        this.values.sender,
-        this.values.title,
-        this.values.type,
-        this.values.page,
-        this.values.description
+      const values = this.form.value;
+      const postResult = this.service.postReport(
+        values.sender,
+        values.title,
+        values.type,
+        values.page,
+        values.description
       );
-      if (this.postResult) {
+      if (postResult) {
         this.openModal(this.successModal);
         this.form.reset();
       } else {
